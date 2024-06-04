@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+//import { Link } from "react-router-dom";
+import DealOfDay from "./DealOfDay";
+import QuickView from "./QuickView/QuickView";
+import Header from "./Header";
+import MobileHeader from "./MobileHeader";
+import Main from "./Main";
+import Footer from "./Footer";
+import PreloaderStart from "./PreloaderStart";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DealOfDay />
+      <QuickView />
+      <Header />
+      <MobileHeader />
+      <Main />
+      <Footer />
+      <PreloaderStart />
+    </>
+    //<Link to={`dashboard`}>hello</Link>
   );
 }
 
