@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Header() {
+  const items = [
+    "100% Secure delivery without contacting the courier",
+    "Supper Value Deals - Save more with coupons",
+    "Trendy 25silver jewelry, save up 35% off today",
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+    }, 2000);
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
+  }, [items.length]);
+
   return (
     <header className="header-area header-style-1 header-height-2">
       <div className="mobile-promotion">
@@ -34,9 +50,16 @@ export default function Header() {
               <div className="text-center">
                 <div id="news-flash" className="d-inline-block">
                   <ul>
-                    <li>100% Secure delivery without contacting the courier</li>
-                    <li>Supper Value Deals - Save more with coupons</li>
-                    <li>Trendy 25silver jewelry, save up 35% off today</li>
+                    {items.map((item, index) => (
+                      <li
+                        key={index}
+                        className={
+                          index === currentIndex ? "visible" : "hidden"
+                        }
+                      >
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

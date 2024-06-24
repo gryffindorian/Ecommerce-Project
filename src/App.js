@@ -7,6 +7,7 @@ import MobileHeader from "./MobileHeader";
 import Main from "./Main";
 import Footer from "./Footer";
 import PreloaderStart from "./PreloaderStart";
+//import Login from "./Login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Main />
       <Footer />
       <PreloaderStart />
+      {/* <Login /> */}
     </>
     //<Link to={`dashboard`}>hello</Link>
   );

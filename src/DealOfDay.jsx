@@ -1,6 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 
 export default function DealOfDay() {
+  //  setInterval(Timer, 1000);
+  // var [Days, setDays] = useState(3);
+  // var [Hrs, setHrs] = useState(12);
+  // var [Min, setMin] = useState(43);
+  // var [Sec, setSec] = useState(28);
+  // // function SecTime() {
+  // //   setSec((Sec = Sec - 1));
+  // // }
+
+  // function Timer(){
+  //      setSec((Sec = Sec - 1));
+  //      if(Sec == 0){
+  //        set
+  //      }
+  //      setSec((Sec = Sec - 1));
+  //      setSec((Sec = Sec - 1));
+  //      setSec((Sec = Sec - 1));
+  // }
+
+  const calculateTimeLeft = (targetDate) => {
+    const now = new Date();
+    const difference = targetDate - now;
+
+    let timeLeft = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    } else {
+      // Time is up
+      timeLeft = {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+    }
+
+    return timeLeft;
+  };
+
+  // Set the duration: 3 days, 2 hours, 43 minutes, and 29 seconds in milliseconds
+  const duration =
+    274 * 24 * 60 * 60 * 1000 +
+    12 * 60 * 60 * 1000 +
+    43 * 60 * 1000 +
+    29 * 1000;
+  const initialTargetDate = new Date(new Date().getTime() + duration);
+
+  const [timeLeft, setTimeLeft] = useState(
+    calculateTimeLeft(initialTargetDate)
+  );
+  const [targetDate] = useState(initialTargetDate); // store the target date
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft(targetDate));
+    }, 1000);
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
   return (
     <div
       className="modal fade custom-modal"
@@ -52,19 +120,27 @@ export default function DealOfDay() {
                   data-countdown="2025/03/25 00:00:00"
                 >
                   <span className="countdown-section">
-                    <span className="countdown-amount hover-up">03</span>
+                    <span className="countdown-amount hover-up">
+                      {timeLeft.days}
+                    </span>
                     <span className="countdown-period"> days </span>
                   </span>
                   <span className="countdown-section">
-                    <span className="countdown-amount hover-up">02</span>
+                    <span className="countdown-amount hover-up">
+                      {timeLeft.hours}
+                    </span>
                     <span className="countdown-period"> hours </span>
                   </span>
                   <span className="countdown-section">
-                    <span className="countdown-amount hover-up">43</span>
+                    <span className="countdown-amount hover-up">
+                      {timeLeft.minutes}
+                    </span>
                     <span className="countdown-period"> mins </span>
                   </span>
                   <span className="countdown-section">
-                    <span className="countdown-amount hover-up">29</span>
+                    <span className="countdown-amount hover-up">
+                      {timeLeft.seconds}
+                    </span>
                     <span className="countdown-period"> sec </span>
                   </span>
                 </div>
