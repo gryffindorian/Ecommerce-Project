@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { VendorsDashboard } from "./Vendors/VendorsDashboard";
 
 export default function Header() {
   const items = [
@@ -540,9 +542,10 @@ export default function Header() {
                       <a href="shop-grid-right.html">Deals</a>
                     </li>
                     <li>
-                      <a className="active" href="index.html">
+                      {/* kj,bds sdvvjk.zsvdn. */}
+                      <Link to="/" className="active">
                         Home <i className="fi-rs-angle-down"></i>
-                      </a>
+                      </Link>
                       <ul className="sub-menu">
                         <li>
                           <a href="index.html">Home 1</a>
@@ -565,35 +568,35 @@ export default function Header() {
                       </ul>
                     </li>
                     <li>
-                      <a href="page-about-2.html">About</a>
+                      <Link to="/about">About</Link>
                     </li>
                     <li>
-                      <a href="shop-grid-right.html">
+                      <Link to="/shopgridright">
                         Shop <i className="fi-rs-angle-down"></i>
-                      </a>
+                      </Link>
                       <ul className="sub-menu">
                         <li>
-                          <a href="shop-grid-right.html">
+                          <Link to="/shopgridright">
                             Shop Grid – Right Sidebar
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-grid-left.html">
+                          <Link to="/shopgridleft">
                             Shop Grid – Left Sidebar
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-list-right.html">
+                          <Link to="/shoplistright">
                             Shop List – Right Sidebar
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-list-left.html">
+                          <Link to="/shoplistleft">
                             Shop List – Left Sidebar
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth.html">Shop - Wide</a>
+                          <Link href="/shopfullwidth">Shop - Wide</Link>
                         </li>
                         <li>
                           <a href="#">
@@ -601,41 +604,41 @@ export default function Header() {
                           </a>
                           <ul className="level-menu">
                             <li>
-                              <a href="shop-product-right.html">
+                              <Link to="/shopproductright">
                                 Product – Right Sidebar
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="shop-product-left.html">
+                              <Link to="/shopproductleft">
                                 Product – Left Sidebar
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="shop-product-full.html">
+                              <Link to="/shopproductfull">
                                 Product – No sidebar
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="shop-product-vendor.html">
+                              <Link to="/shopproductvendor">
                                 Product – Vendor Info
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </li>
                         <li>
-                          <a href="shop-filter.html">Shop – Filter</a>
+                          <Link to="/shopfilter">Shop – Filter</Link>
                         </li>
                         <li>
-                          <a href="shop-wishlist.html">Shop – Wishlist</a>
+                          <Link to="/shopwishlist">Shop – Wishlist</Link>
                         </li>
                         <li>
-                          <a href="shop-cart.html">Shop – Cart</a>
+                          <Link to="/shopcart">Shop – Cart</Link>
                         </li>
                         <li>
-                          <a href="shop-checkout.html">Shop – Checkout</a>
+                          <Link to="/shopcheckout">Shop – Checkout</Link>
                         </li>
                         <li>
-                          <a href="shop-compare.html">Shop – Compare</a>
+                          <Link to="/shopcompare">Shop – Compare</Link>
                         </li>
                         <li>
                           <a href="#">
@@ -643,22 +646,22 @@ export default function Header() {
                           </a>
                           <ul className="level-menu">
                             <li>
-                              <a href="shop-invoice-1.html">Shop Invoice 1</a>
+                              <Link to="/shopinvoice1.">Shop Invoice 1</Link>
                             </li>
                             <li>
-                              <a href="shop-invoice-2.html">Shop Invoice 2</a>
+                              <Link to="/shopinvoice2">Shop Invoice 2</Link>
                             </li>
                             <li>
-                              <a href="shop-invoice-3.html">Shop Invoice 3</a>
+                              <Link to="/shopinvoice">Shop Invoice 3</Link>
                             </li>
                             <li>
-                              <a href="shop-invoice-4.html">Shop Invoice 4</a>
+                              <Link to="/shopinvoice4">Shop Invoice 4</Link>
                             </li>
                             <li>
-                              <a href="shop-invoice-5.html">Shop Invoice 5</a>
+                              <Link to="/shopinvoice5">Shop Invoice 5</Link>
                             </li>
                             <li>
-                              <a href="shop-invoice-6.html">Shop Invoice 6</a>
+                              <Link to="/shopinvoice6">Shop Invoice 6</Link>
                             </li>
                           </ul>
                         </li>
@@ -670,22 +673,22 @@ export default function Header() {
                       </a>
                       <ul className="sub-menu">
                         <li>
-                          <a href="vendors-grid.html">Vendors Grid</a>
+                          <Link to="/vendorsgrid">Vendors Grid</Link>
                         </li>
                         <li>
-                          <a href="vendors-list.html">Vendors List</a>
+                          <Link to="/vendorslist">Vendors List</Link>
                         </li>
                         <li>
-                          <a href="vendor-details-1.html">Vendor Details 01</a>
+                          <Link to="/vendordetails1">Vendor Details 01</Link>
                         </li>
                         <li>
-                          <a href="vendor-details-2.html">Vendor Details 02</a>
+                          <Link to="/vendordetails2">Vendor Details 02</Link>
                         </li>
                         <li>
-                          <a href="vendor-dashboard.html">Vendor Dashboard</a>
+                          <Link to="/vendordashboard">Vendor Dashboard</Link>
                         </li>
                         <li>
-                          <a href="vendor-guide.html">Vendor Guide</a>
+                          <Link to="vendorguide">Vendor Guide</Link>
                         </li>
                       </ul>
                     </li>
@@ -887,10 +890,10 @@ export default function Header() {
                           <a href="page-account.html">My Account</a>
                         </li>
                         <li>
-                          <a href="page-login.html">Login</a>
+                          <Link to="login">Login</Link>
                         </li>
                         <li>
-                          <a href="page-register.html">Register</a>
+                          <Link to="register">Register</Link>
                         </li>
                         <li>
                           <a href="page-forgot-password.html">

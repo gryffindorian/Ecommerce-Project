@@ -28,7 +28,7 @@ export default function HeroSlider() {
                 </form>
               </div>
             </div>
-            <div
+            {/* <div
               className="single-hero-slider single-animation-wrap"
               style={{
                 backgroundImage:
@@ -49,7 +49,7 @@ export default function HeroSlider() {
                   </button>
                 </form>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="slider-arrow hero-slider-1-arrow"></div>
         </div>
