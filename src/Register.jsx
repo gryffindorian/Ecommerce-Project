@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export const Register = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -26,17 +27,15 @@ export const Register = () => {
     e.preventDefault();
     console.log("Form Data:", formData);
 
-    // Optionally, you can send this data to a server using fetch or axios
-    // fetch('your-api-endpoint', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    // })
-    // .then(response => response.json())
-    // .then(data => console.log('Success:', data))
-    // .catch((error) => console.error('Error:', error));
+    //Sending data to our server
+    axios
+      .post("http://localhost:3001/submit-form", formData)
+      .then((response) => {
+        console.log("Data submitted successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error submitting data:", error);
+      });
   };
 
   const handleOptionChange = (e) => {
