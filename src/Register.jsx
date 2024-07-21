@@ -74,7 +74,7 @@ export const Register = () => {
                           <input
                             type="text"
                             required=""
-                            name="username"
+                            name="name"
                             placeholder="Username"
                             value={formData.name}
                             onChange={handleChange}

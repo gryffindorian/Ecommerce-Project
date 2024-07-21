@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 export const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    securityCode: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //console.log("Form Data:", formData);
+
+    axios
+      .post("http://localhost:3001/login", formData)
+      .then((response) => {
+        console.log("Login successful:", response.data);
+      })
+      .catch((error) => {
+        console.error("Login failed:", error.response.data);
+      });
+  };
+
   return (
     <main className="main pages">
       <div className="page-header breadcrumb-wrap">
@@ -35,13 +64,16 @@ export const Login = () => {
                           <a href="page-register.html">Create here</a>
                         </p>
                       </div>
-                      <form method="post">
+                      <form method="post" onSubmit={handleSubmit}>
                         <div className="form-group">
                           <input
                             type="text"
                             required=""
                             name="email"
-                            placeholder="Username or Email *"
+                            // placeholder="Username or Email *"
+                            placeholder="Email *"
+                            value={formData.email}
+                            onChange={handleChange}
                           />
                         </div>
                         <div className="form-group">
@@ -50,6 +82,8 @@ export const Login = () => {
                             type="password"
                             name="password"
                             placeholder="Your password *"
+                            value={formData.password}
+                            onChange={handleChange}
                           />
                         </div>
                         <div className="login_footer form-group">
@@ -57,8 +91,10 @@ export const Login = () => {
                             <input
                               type="text"
                               required=""
-                              name="email"
+                              name="securityCode"
                               placeholder="Security code *"
+                              value={formData.securityCode}
+                              onChange={handleChange}
                             />
                           </div>
                           <span className="security-code">
